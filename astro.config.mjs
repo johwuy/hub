@@ -4,7 +4,6 @@ import sitemap from "@astrojs/sitemap";
 import tailwind from "@astrojs/tailwind";
 
 export default defineConfig({
-  site: "https://johwuy.github.io",
-  base: "/hub",
+  site: "https://johnnywu.net",
   integrations: [mdx(), sitemap(), tailwind()],
 });
