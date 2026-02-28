@@ -36,5 +36,9 @@ export const SOCIALS: Socials = [
   { 
     NAME: "linkedin",
     HREF: "https://www.linkedin.com/in/johwuy",
+  },
+  {
+    NAME: "strava",
+    HREF: "https://strava.app.link/BXVj7ZhB80b",
   }
 ];
