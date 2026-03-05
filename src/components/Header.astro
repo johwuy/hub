@@ -1,7 +1,11 @@
 ---
 import Container from "@components/Container.astro";
 import Link from "@components/Link.astro";
+import { getCollection } from "astro:content";
 import { SITE } from "@consts";
+
+const projects = await getCollection("projects", ({ data }) => !data.draft);
+const hasProjects = projects.length > 0;
 ---
 
 <header>
@@ -25,12 +29,14 @@ import { SITE } from "@consts";
         <Link href="/work">
           work
         </Link>
-        <span>
-          {`/`}
-        </span>
-        <Link href="/projects">
-          projects
-        </Link>
+        {hasProjects && (
+          <>
+            <span>{`/`}</span>
+            <Link href="/projects">
+              projects
+            </Link>
+          </>
+        )}
       </nav>
     </div>
   </Container>
