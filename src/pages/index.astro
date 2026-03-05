@@ -63,7 +63,7 @@ const work = await Promise.all(
           </Link>
         </div>
         <ul class="flex flex-col gap-4">
-          {blog.map(post => (
+          {blog.length > 0 && blog.map(post => (
             <li>
               <ArrowCard entry={post} />
             </li>

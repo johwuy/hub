@@ -5,7 +5,9 @@ import { getCollection } from "astro:content";
 import { SITE } from "@consts";
 
 const projects = await getCollection("projects", ({ data }) => !data.draft);
+const blog = await getCollection("blog", ({ data }) => !data.draft);
 const hasProjects = projects.length > 0;
+const hasBlog = blog.length > 0;
 ---
 
 <header>
@@ -20,9 +22,16 @@ const hasProjects = projects.length > 0;
         </span>
       </Link>
       <nav class="flex gap-1">
-        <Link href="/blog">
-          blog
-        </Link>
+        {hasBlog && (
+          <>
+            <Link href="/blog">
+              blog
+            </Link>
+            <span>
+              {`/`}
+            </span>
+          </>
+        )}
         <span>
           {`/`}
         </span>
