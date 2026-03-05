@@ -13,14 +13,9 @@ const hasBlog = blog.length > 0;
 <header>
   <Container>
     <div class="flex flex-wrap gap-y-2 justify-between">
-      <Link href="/" underline={false}>
-        <span class="flex items-center gap-1.5">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" class="size-5 shrink-0 fill-current" aria-hidden="true">
-            <path d="M240-200h120v-240h240v240h120v-360L480-740 240-560v360Zm-80 80v-480l320-240 320 240v480H520v-240h-80v240H160Zm320-350Z" />
-          </svg>
-          <span class="font-semibold">{SITE.NAME}</span>
-        </span>
-      </Link>
+      <div class="font-semibold text-black dark:text-white">
+        {SITE.NAME}
+      </div>
       <nav class="flex gap-1">
         {hasBlog && (
           <>
