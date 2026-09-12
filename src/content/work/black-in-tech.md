@@ -1,8 +1,9 @@
 ---
 company: "Black in Tech @ UC Irvine"
-role: "Web Developer Intern"
+role: "Technical Lead"
 dateStart: "11/01/2025"
-dateEnd: "Current"
+dateEnd: "06/01/2026"
 ---
 
-- Collaborate with a development team to maintain the Black in Tech club website through weekly sprint cycles, conducting code reviews for junior interns and resolving bugs to ensure consistent functionality for the campus community.
+- Serve as technical anchor for a team of peer developers, advising on feature approaches, tool selection, and debugging while interfacing with UI/UX designers and club leadership to align scope and priorities.
+- Designed a hybrid CMS architecture for the club website, integrating Sanity.io for content-heavy features while preserving custom implementation for leaner ones, optimizing for long-term maintainability across a rotating team.
