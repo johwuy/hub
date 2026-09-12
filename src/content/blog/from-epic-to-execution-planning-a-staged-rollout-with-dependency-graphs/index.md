@@ -3,7 +3,6 @@ title: "From Epic to Execution: Planning a Staged Rollout With Dependency Graphs
 description: "How a living dependency graph turns an engineering epic into an adaptable execution plan."
 date: "09/12/2026"
 draft: false
-tableOfContents: true
 ---
 
 An epic is not simple. It compresses a complex problem—often spanning database changes, APIs, UI work, migrations, validation, cleanup, and deployment constraints—into a single roadmap item.
