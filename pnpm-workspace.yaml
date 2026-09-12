@@ -1,0 +1,8 @@
+# Temporary: GitHub Pages rejected yaml@2.9.1 under its minimum-release-age policy.
+# Remove this override once a newer YAML release has aged past that policy.
+overrides:
+  yaml: 2.8.3
+
+allowBuilds:
+  esbuild: true
+  sharp: true

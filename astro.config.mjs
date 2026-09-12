@@ -5,5 +5,6 @@ import tailwind from "@astrojs/tailwind";
 
 export default defineConfig({
   site: "https://johnnywu.net",
+  compressHTML: true,
   integrations: [mdx(), sitemap(), tailwind()],
 });
