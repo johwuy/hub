@@ -17,9 +17,9 @@ const projectsIsActive = currentPath.startsWith("/projects");
 <header class="site-header">
   <Container>
     <div class="flex flex-wrap gap-y-2 items-center justify-between px-4 py-3">
-      <div class="font-display text-2xl leading-none text-ink">
+      <Link href="/" underline={false} class="font-display text-2xl leading-none text-ink">
         {SITE.NAME}
-      </div>
+      </Link>
       <nav class="flex items-center gap-1 text-sm">
         {hasBlog && (
           <Link href="/" underline={false} class={`rounded-md px-2.5 py-1.5 ${blogIsActive ? "bg-raised text-ink" : "hover:bg-raised/70"}`}>
