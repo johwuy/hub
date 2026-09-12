@@ -1,21 +1,12 @@
-import type { Site, Metadata, Socials } from "@types";
+import type { Site, Metadata } from "@types";
 
 export const SITE: Site = {
   NAME: "Johnny Wu",
-  EMAIL: "johwuy@gmail.com",
-  NUM_POSTS_ON_HOMEPAGE: 3,
-  NUM_WORKS_ON_HOMEPAGE: 2,
-  NUM_PROJECTS_ON_HOMEPAGE: 3,
-};
-
-export const HOME: Metadata = {
-  TITLE: "Home",
-  DESCRIPTION: "Johnny Wu — Portfolio, blog, and projects. CS @ UCI '26.",
 };
 
 export const BLOG: Metadata = {
   TITLE: "Blog",
-  DESCRIPTION: "A collection of articles on topics I am passionate about.",
+  DESCRIPTION: "Notes on software engineering, system design, and building maintainable products.",
 };
 
 export const WORK: Metadata = {
@@ -27,18 +18,3 @@ export const PROJECTS: Metadata = {
   TITLE: "Projects",
   DESCRIPTION: "A collection of my projects, with links to repositories and demos.",
 };
-
-export const SOCIALS: Socials = [
-  { 
-    NAME: "github",
-    HREF: "https://github.com/johwuy"
-  },
-  { 
-    NAME: "linkedin",
-    HREF: "https://www.linkedin.com/in/johwuy",
-  },
-  {
-    NAME: "strava",
-    HREF: "https://strava.app.link/BXVj7ZhB80b",
-  }
-];
