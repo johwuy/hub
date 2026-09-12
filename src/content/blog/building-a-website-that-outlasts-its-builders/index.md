@@ -1,6 +1,6 @@
 ---
 title: "Building a Website That Outlasts Its Builders"
-description: "Lessons from Black in Tech."
+description: "Lessons from building Black in Tech's club website at UC Irvine, choosing what to build, and designing for the next team to maintain it."
 date: "03/05/2026"
 ---
 
