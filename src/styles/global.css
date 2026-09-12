@@ -223,6 +223,32 @@ article {
   font-size: inherit;
 }
 
+.markdown-content pre.mermaid {
+  margin: 1.75rem 0;
+  overflow-x: auto;
+  border: 1px solid rgb(var(--color-line));
+  border-radius: 0.75rem;
+  background: rgb(var(--color-panel));
+  padding: 1rem;
+}
+
+.markdown-content pre.mermaid svg {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  margin-inline: auto;
+}
+
+.markdown-content pre.mermaid svg .node rect {
+  rx: 12px;
+  ry: 12px;
+  stroke-width: 1.25px;
+}
+
+.markdown-content pre.mermaid svg .flowchart-link {
+  stroke-width: 1.5px;
+}
+
 .markdown-content hr {
   margin: 2rem 0;
   border-color: rgb(var(--color-line));

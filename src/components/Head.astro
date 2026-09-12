@@ -162,8 +162,10 @@ function toggleTheme(dark) {
 
     if (dark) {
       document.documentElement.classList.add("dark");
+      document.documentElement.dataset.theme = "dark";
     } else {
       document.documentElement.classList.remove("dark");
+      document.documentElement.dataset.theme = "light";
     }
 
   window.getComputedStyle(css).opacity;
