@@ -250,6 +250,17 @@ article {
   font-size: inherit;
 }
 
+.markdown-content pre.astro-code {
+  background: rgb(var(--color-raised)) !important;
+  box-shadow: none;
+  color: rgb(var(--color-ink)) !important;
+}
+
+.markdown-content pre.astro-code code,
+.markdown-content pre.astro-code span {
+  color: inherit !important;
+}
+
 .markdown-content pre.mermaid {
   margin: 1.75rem 0;
   overflow-x: auto;
