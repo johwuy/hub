@@ -94,6 +94,10 @@ article {
   margin-bottom: 0;
 }
 
+.markdown-content > nav + :is(h2, h3) {
+  margin-top: 0;
+}
+
 .markdown-content p {
   margin-top: 0;
   margin-bottom: 1.75rem;
@@ -102,6 +106,7 @@ article {
 .markdown-content :is(h1, h2, h3, h4, h5, h6) {
   margin-top: 2em;
   margin-bottom: 0.4em;
+  scroll-margin-top: 7rem;
   font-family: "Instrument Serif", serif;
   font-weight: 400;
   line-height: 1.15;

@@ -1,0 +1,42 @@
+---
+type Heading = {
+  depth: number;
+  slug: string;
+  text: string;
+};
+
+type Props = {
+  headings: Heading[];
+};
+
+const { headings } = Astro.props;
+const visibleHeadings = headings.filter(({ depth }) => depth === 2 || depth === 3);
+---
+
+{
+  visibleHeadings.length > 0 && (
+    <nav
+      aria-labelledby="table-of-contents-heading"
+      class="not-prose mb-8 rounded-xl border border-line bg-panel p-5 sm:p-6"
+    >
+      <h2
+        id="table-of-contents-heading"
+        class="!m-0 font-display text-2xl leading-tight text-ink"
+      >
+        Contents
+      </h2>
+      <ol class="!mb-0 mt-4 space-y-2 text-sm">
+        {visibleHeadings.map(({ depth, slug, text }) => (
+          <li class:list={[depth === 3 && "pl-5"]}>
+            <a
+              href={`#${slug}`}
+              class="text-muted no-underline transition-colors duration-200 hover:text-accent"
+            >
+              {text}
+            </a>
+          </li>
+        ))}
+      </ol>
+    </nav>
+  )
+}
