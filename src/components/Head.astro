@@ -143,6 +143,12 @@ const { title, description, image = "/nano.png" } = Astro.props;
   }
 
 function toggleTheme(dark) {
+    const preference = ["light", "dark"].includes(localStorage.theme) ? localStorage.theme : "system";
+    for (const theme of ["light", "dark", "system"]) {
+      document.getElementById(`${theme}-theme-button`)
+        ?.setAttribute("aria-pressed", String(theme === preference));
+    }
+
     const css = document.createElement("style");
 
     css.appendChild(
