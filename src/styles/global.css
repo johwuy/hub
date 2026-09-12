@@ -41,6 +41,28 @@ header {
   @apply fixed top-0 left-0 right-0 z-50 py-4;
 }
 
+.site-header {
+  isolation: isolate;
+}
+
+.site-header::before {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(
+    to bottom,
+    rgb(var(--color-canvas) / 0.94) 0%,
+    rgb(var(--color-canvas) / 0.72) 68%,
+    transparent 100%
+  );
+  -webkit-backdrop-filter: blur(18px) saturate(135%);
+  backdrop-filter: blur(18px) saturate(135%);
+  -webkit-mask-image: linear-gradient(to bottom, black 72%, transparent 100%);
+  mask-image: linear-gradient(to bottom, black 72%, transparent 100%);
+  pointer-events: none;
+  content: "";
+}
+
 main {
   @apply flex-1 pt-32 pb-24;
 }
