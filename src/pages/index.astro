@@ -29,21 +29,21 @@ const years = Object.keys(posts).sort((a, b) => parseInt(b) - parseInt(a));
   <Container>
     <div class="space-y-10">
       <div class="animate space-y-2">
-        <div class="font-semibold text-black dark:text-white">
+        <div class="font-display text-3xl leading-tight text-ink">
           Blog
         </div>
-        <p class="text-sm opacity-75">
+        <p class="max-w-md text-sm leading-relaxed text-muted">
           Notes on software engineering, system design, and building maintainable products.
         </p>
       </div>
       <div class="space-y-4">
         {years.map(year => (
-          <section class="animate space-y-4">
-            <div class="font-semibold text-black dark:text-white">
+          <section class="animate space-y-3">
+            <div class="font-display text-xl text-ink">
               {year}
             </div>
             <div>
-              <ul class="flex flex-col gap-4">
+              <ul class="divide-y divide-line border-y border-line">
                 {
                   posts[year].map((post) => (
                     <li>

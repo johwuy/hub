@@ -5,10 +5,24 @@
 html {
   overflow-y: scroll;
   color-scheme: light;
+  --color-canvas: 247 246 242;
+  --color-panel: 252 251 248;
+  --color-raised: 236 234 227;
+  --color-ink: 39 39 35;
+  --color-muted: 105 104 97;
+  --color-line: 218 215 206;
+  --color-accent: 78 104 89;
 }
 
 html.dark {
   color-scheme: dark;
+  --color-canvas: 20 21 19;
+  --color-panel: 27 29 26;
+  --color-raised: 38 41 36;
+  --color-ink: 235 234 228;
+  --color-muted: 164 164 154;
+  --color-line: 57 60 54;
+  --color-accent: 159 188 170;
 }
 
 html,
@@ -19,18 +33,16 @@ body {
 body {
   @apply font-sans antialiased;
   @apply flex flex-col;
-  @apply bg-stone-100 dark:bg-stone-900;
-  @apply text-black/50 dark:text-white/75;
+  @apply bg-canvas text-muted;
+  letter-spacing: -0.005em;
 }
 
 header {
-  @apply fixed top-0 left-0 right-0 z-50 py-5;
-  @apply bg-stone-100/75 dark:bg-stone-900/25;
-  @apply backdrop-blur-sm saturate-200;
+  @apply fixed top-0 left-0 right-0 z-50 py-4;
 }
 
 main {
-  @apply flex-1 py-32;
+  @apply flex-1 pt-32 pb-24;
 }
 
 footer {
@@ -38,26 +50,246 @@ footer {
 }
 
 article {
-  @apply max-w-full prose dark:prose-invert prose-img:mx-auto prose-img:my-auto;
-  @apply prose-headings:font-semibold prose-p:font-serif;
-  @apply prose-headings:text-black prose-headings:dark:text-white;
+  @apply max-w-full prose prose-img:mx-auto prose-img:my-auto;
+  @apply prose-headings:font-display prose-headings:font-normal prose-headings:text-ink;
+  --tw-prose-body: rgb(var(--color-muted));
+  --tw-prose-headings: rgb(var(--color-ink));
+  --tw-prose-lead: rgb(var(--color-muted));
+  --tw-prose-links: rgb(var(--color-ink));
+  --tw-prose-bold: rgb(var(--color-ink));
+  --tw-prose-counters: rgb(var(--color-muted));
+  --tw-prose-bullets: rgb(var(--color-accent));
+  --tw-prose-hr: rgb(var(--color-line));
+  --tw-prose-quotes: rgb(var(--color-ink));
+  --tw-prose-quote-borders: rgb(var(--color-line));
+  --tw-prose-captions: rgb(var(--color-muted));
+  --tw-prose-code: rgb(var(--color-ink));
+  --tw-prose-pre-code: rgb(var(--color-ink));
+  --tw-prose-pre-bg: rgb(var(--color-panel));
+  --tw-prose-th-borders: rgb(var(--color-line));
+  --tw-prose-td-borders: rgb(var(--color-line));
 }
 
 @layer utilities {
   article a {
-    @apply font-sans text-current underline underline-offset-2;
-    @apply decoration-black/15 dark:decoration-white/30;
-    @apply transition-colors duration-300 ease-in-out;
+    @apply font-sans text-ink underline underline-offset-4 decoration-line;
+    @apply transition-colors duration-200 ease-out;
   }
   article a:hover {
-    @apply text-black dark:text-white;
-    @apply decoration-black/25 dark:decoration-white/50;
+    @apply text-accent decoration-accent;
   }
+}
+
+/* Baseline-inspired rendered Markdown */
+.markdown-content {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.markdown-content > :first-child {
+  margin-top: 0;
+}
+
+.markdown-content > :last-child {
+  margin-bottom: 0;
+}
+
+.markdown-content p {
+  margin-top: 0;
+  margin-bottom: 1.75rem;
+}
+
+.markdown-content :is(h1, h2, h3, h4, h5, h6) {
+  margin-top: 2em;
+  margin-bottom: 0.4em;
+  font-family: "Instrument Serif", serif;
+  font-weight: 400;
+  line-height: 1.15;
+  letter-spacing: normal;
+  text-wrap: pretty;
+}
+
+.markdown-content h1 {
+  font-size: 2.25rem;
+}
+
+.markdown-content h2 {
+  font-size: 1.875rem;
+}
+
+.markdown-content h3 {
+  font-size: 1.5rem;
+}
+
+.markdown-content h4 {
+  font-size: 1.25rem;
+}
+
+.markdown-content :is(h5, h6) {
+  font-size: 1rem;
+}
+
+.markdown-content h6 {
+  text-transform: uppercase;
+}
+
+.markdown-content :is(ul, ol) {
+  margin-top: 1.75rem;
+  margin-bottom: 1.75rem;
+  padding-left: 1.5rem;
+}
+
+.markdown-content li {
+  margin-top: 0.175em;
+  margin-bottom: 0.175em;
+}
+
+.markdown-content li::marker {
+  color: rgb(var(--color-accent));
+}
+
+.markdown-content a {
+  color: rgb(var(--color-accent));
+  text-decoration: none;
+}
+
+.markdown-content a:hover {
+  color: rgb(var(--color-ink));
+}
+
+.markdown-content blockquote {
+  position: relative;
+  margin: 1.75rem 0;
+  border: 0;
+  border-radius: 0.5rem;
+  background: rgb(var(--color-panel));
+  padding: 1rem 1rem 1rem 2.125rem;
+  color: rgb(var(--color-muted));
+  font-style: normal;
+  quotes: none;
+}
+
+.markdown-content blockquote::before {
+  position: absolute;
+  inset-block: 1rem;
+  inset-inline-start: 1rem;
+  width: 2px;
+  border-radius: 999px;
+  background: rgb(var(--color-line));
+  content: "";
+}
+
+.markdown-content blockquote :is(p:first-of-type::before, p:last-of-type::after) {
+  content: none;
+}
+
+.markdown-content blockquote > :last-child {
+  margin-bottom: 0;
+}
+
+.markdown-content :not(pre) > code {
+  border: 1px solid rgb(var(--color-line));
+  border-radius: 0.35rem;
+  background: rgb(var(--color-panel));
+  padding: 0.125rem 0.3rem;
+  color: rgb(var(--color-ink));
+  font-size: 0.8125rem;
+  font-weight: 400;
+}
+
+.markdown-content :not(pre) > code::before,
+.markdown-content :not(pre) > code::after {
+  content: none;
+}
+
+.markdown-content pre {
+  margin: 1.75rem 0;
+  overflow-x: auto;
+  border: 1px solid rgb(var(--color-line));
+  border-radius: 0.5rem;
+  background: linear-gradient(rgb(var(--color-panel)), rgb(var(--color-raised) / 0.45));
+  padding: 1rem;
+  box-shadow: 0 2px 8px -2px rgb(0 0 0 / 0.05);
+  color: rgb(var(--color-ink));
+  font-size: 0.8125rem;
+  line-height: 1.6;
+}
+
+.markdown-content pre code {
+  border: 0;
+  background: transparent;
+  padding: 0;
+  color: inherit;
+  font-size: inherit;
+}
+
+.markdown-content hr {
+  margin: 2rem 0;
+  border-color: rgb(var(--color-line));
+}
+
+.markdown-content img,
+.markdown-content video,
+.markdown-content iframe {
+  width: 100%;
+  max-height: 75vh;
+  border-radius: 0.5rem;
+  background: rgb(var(--color-panel));
+  object-fit: contain;
+}
+
+.markdown-content table {
+  width: 100%;
+  margin: 1.75rem 0;
+  border-collapse: separate;
+  border: 1px solid rgb(var(--color-line));
+  border-spacing: 0;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  overflow: hidden;
+}
+
+.markdown-content :is(th, td) {
+  border: 0;
+  border-bottom: 1px solid rgb(var(--color-line));
+  padding: 0.625rem 0.75rem;
+  text-align: left;
+  vertical-align: top;
+}
+
+.markdown-content th {
+  background: rgb(var(--color-panel));
+  color: rgb(var(--color-ink));
+  font-weight: 600;
+}
+
+.markdown-content tr:last-child td {
+  border-bottom: 0;
+}
+
+.markdown-content mark {
+  border-radius: 0.35rem;
+  padding: 0.125rem 0.25rem;
+  background: rgb(var(--color-accent) / 0.18);
+  color: rgb(var(--color-ink));
+  font-weight: 500;
+  box-decoration-break: clone;
+}
+
+.markdown-content kbd {
+  border: 1px solid rgb(var(--color-line));
+  border-radius: 0.35rem;
+  background: rgb(var(--color-panel));
+  padding: 0.2rem 0.45rem;
+  color: rgb(var(--color-muted));
+  font-family: "Instrument Sans", sans-serif;
+  font-size: 0.8125rem;
+  box-shadow: 0 2px 8px -2px rgb(0 0 0 / 0.08);
 }
 
 .animate {
   @apply opacity-0 translate-y-3;
-  @apply transition-all duration-700 ease-out;
+  @apply transition-all duration-500 ease-out;
 }
 
 .animate.show {
